@@ -1,0 +1,888 @@
+/* ==========================================================================
+   KUNAL SINGH SHEKHAWAT — ARTISTIC & EDITORIAL COMPONENTS
+   File 2 of 2: Collage Framing, Atelier Cards, Galleries & Modals (editorial-style.css)
+   ========================================================================== */
+
+/* Hero Right Column: Replaceable Portrait Atelier Composition */
+.hero-atelier-composition {
+  position: relative;
+  padding: 1.5rem;
+}
+
+.atelier-backdrop-shape {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  bottom: 1.5rem;
+  left: 2rem;
+  background-color: var(--glacier-secondary);
+  border: 1.5px solid var(--navy-primary);
+  z-index: 1;
+  transform: rotate(2deg);
+}
+
+.atelier-portrait-frame {
+  position: relative;
+  z-index: 2;
+  background-color: var(--warm-ivory);
+  border: 2px solid var(--navy-primary);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-editorial);
+}
+
+.portrait-canvas-box {
+  position: relative;
+  aspect-ratio: 4 / 4.7;
+  background: linear-gradient(155deg, var(--deep-navy) 0%, var(--navy-primary) 58%, #1e3e61 100%);
+  border: 1px solid var(--navy-primary);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--warm-cream);
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.portrait-uploaded-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 3;
+  display: none;
+}
+
+.portrait-uploaded-img.visible {
+  display: block;
+}
+
+.portrait-placeholder-art {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.portrait-upload-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.95rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--line-navy-strong);
+}
+
+.portrait-caption-tag {
+  font-family: var(--font-meta);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy-primary);
+}
+
+.btn-upload-portrait {
+  font-family: var(--font-meta);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.38rem 0.75rem;
+  background-color: var(--soft-glacier);
+  color: var(--navy-primary);
+  border: 1px solid var(--navy-primary);
+  transition: all 0.2s ease;
+}
+
+.btn-upload-portrait:hover {
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+}
+
+.atelier-floating-badge {
+  position: absolute;
+  z-index: 4;
+  background-color: var(--deep-navy);
+  color: var(--warm-cream);
+  border: 1.5px solid var(--glacier-secondary);
+  padding: 0.65rem 1rem;
+  font-family: var(--font-meta);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-editorial);
+}
+
+.atelier-floating-badge.top-left {
+  top: -0.5rem;
+  left: 0;
+}
+
+.atelier-floating-badge.bottom-right {
+  bottom: 0.25rem;
+  right: -0.5rem;
+  background-color: var(--warm-ivory);
+  color: var(--navy-primary);
+  border-color: var(--navy-primary);
+}
+
+/* ==========================================================================
+   SECTION 01: ABOUT ME — ASYMMETRICAL EDITORIAL SPREAD
+   ========================================================================== */
+.about-editorial-grid {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.about-pullquote-card {
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+  padding: clamp(1.75rem, 3.5vw, 2.75rem);
+  border: 1.5px solid var(--navy-primary);
+  box-shadow: 10px 10px 0 var(--glacier-secondary);
+  position: relative;
+}
+
+.pullquote-text {
+  font-family: var(--font-artistic);
+  font-style: italic;
+  font-size: clamp(1.45rem, 2.2vw, 1.95rem);
+  line-height: 1.38;
+  color: var(--warm-cream);
+  margin-bottom: 1.35rem;
+}
+
+.duality-pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.duality-card {
+  background-color: var(--warm-ivory);
+  border: 1px solid var(--navy-primary);
+  padding: 1.35rem;
+  position: relative;
+  transition: transform 0.25s var(--transition-smooth), box-shadow 0.25s var(--transition-smooth);
+}
+
+.duality-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 var(--navy-primary);
+}
+
+.duality-card.creative-accent {
+  background-color: var(--soft-glacier);
+}
+
+.duality-card-title {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--navy-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   SECTION 02: PROFESSIONAL & CASE COMPETITION EXPERIENCE
+   ========================================================================== */
+.experience-showcase-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.exp-monograph-card {
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+  border: 2px solid var(--deep-navy);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-elevated);
+}
+
+.exp-monograph-card.case-variant {
+  background-color: var(--warm-ivory);
+  color: var(--dark-ink);
+  border: 2px solid var(--navy-primary);
+  box-shadow: 12px 12px 0 var(--navy-primary);
+}
+
+.exp-card-header {
+  padding: clamp(1.75rem, 3.5vw, 2.75rem);
+  border-bottom: 1px solid rgba(169, 213, 229, 0.24);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.exp-monograph-card.case-variant .exp-card-header {
+  border-bottom: 1px solid var(--line-navy-strong);
+  background-color: var(--soft-glacier);
+}
+
+.exp-role-badge {
+  display: inline-block;
+  font-family: var(--font-meta);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  background-color: var(--glacier-secondary);
+  color: var(--deep-navy);
+  margin-bottom: 0.85rem;
+}
+
+.exp-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3vw, 2.45rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.exp-org-line {
+  font-family: var(--font-artistic);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--glacier-secondary);
+  margin-top: 0.3rem;
+}
+
+.exp-monograph-card.case-variant .exp-org-line {
+  color: var(--navy-primary);
+}
+
+.exp-card-body {
+  padding: clamp(1.75rem, 3.5vw, 2.75rem);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+}
+
+.exp-bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.exp-bullet-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.exp-bullet-list li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  font-size: 0.75rem;
+  color: var(--glacier-secondary);
+}
+
+.exp-monograph-card.case-variant .exp-bullet-list li::before {
+  color: var(--navy-primary);
+}
+
+/* Interactive ICEP Exam Domains & CDPG Track 3 Explorer Panel */
+.interactive-inspector-box {
+  background-color: rgba(16, 34, 56, 0.65);
+  border: 1px solid rgba(169, 213, 229, 0.35);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.exp-monograph-card.case-variant .interactive-inspector-box {
+  background-color: var(--warm-cream);
+  border: 1.5px solid var(--navy-primary);
+}
+
+.exam-tabs-row, .pillar-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.9rem 0 1.15rem;
+}
+
+.exam-tab-btn {
+  font-family: var(--font-meta);
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--glacier-secondary);
+  color: var(--glacier-secondary);
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.exam-tab-btn.active, .exam-tab-btn:hover {
+  background-color: var(--glacier-secondary);
+  color: var(--deep-navy);
+}
+
+.pillar-chip-btn {
+  font-family: var(--font-meta);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.42rem 0.8rem;
+  border: 1px solid var(--navy-primary);
+  background-color: var(--warm-ivory);
+  color: var(--navy-primary);
+  transition: all 0.2s ease;
+}
+
+.pillar-chip-btn.active, .pillar-chip-btn:hover {
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+}
+
+.inspector-detail-readout {
+  padding: 1rem;
+  background-color: rgba(244, 235, 221, 0.08);
+  border-left: 3px solid var(--glacier-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.exp-monograph-card.case-variant .inspector-detail-readout {
+  background-color: var(--warm-ivory);
+  border-left-color: var(--navy-primary);
+}
+
+/* ==========================================================================
+   SECTION 03: EDUCATION — ARCHITECTURAL TIMELINE
+   ========================================================================== */
+.education-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.edu-card {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  background-color: var(--warm-ivory);
+  border: 1.5px solid var(--navy-primary);
+  transition: transform 0.25s var(--transition-smooth);
+}
+
+.edu-card.iimb-flagship {
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+  border-width: 2px;
+  box-shadow: 10px 10px 0 var(--glacier-secondary);
+}
+
+.edu-meta-sidebar {
+  padding: 1.75rem;
+  border-right: 1px solid var(--line-navy-strong);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(169, 213, 229, 0.18);
+}
+
+.edu-card.iimb-flagship .edu-meta-sidebar {
+  background-color: var(--deep-navy);
+  border-right-color: rgba(169, 213, 229, 0.25);
+}
+
+.edu-year-badge {
+  font-family: var(--font-artistic);
+  font-style: italic;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy-primary);
+}
+
+.edu-card.iimb-flagship .edu-year-badge {
+  color: var(--glacier-secondary);
+}
+
+.edu-content-main {
+  padding: 1.85rem 2.25rem;
+}
+
+.edu-institution {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.3vw, 1.9rem);
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.edu-programme {
+  font-family: var(--font-meta);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--muted-blue-grey);
+  margin-bottom: 1rem;
+}
+
+.edu-card.iimb-flagship .edu-programme {
+  color: var(--glacier-secondary);
+}
+
+.edu-interest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.edu-tag {
+  font-family: var(--font-meta);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(169, 213, 229, 0.45);
+  background-color: rgba(169, 213, 229, 0.12);
+  color: var(--warm-cream);
+}
+
+/* ==========================================================================
+   SECTION 04: CONTEMPORARY ACHIEVEMENT GALLERY
+   ========================================================================== */
+.gallery-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2.25rem;
+}
+
+.gallery-filter-btn {
+  font-family: var(--font-meta);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.15rem;
+  border: 1.5px solid var(--navy-primary);
+  background-color: var(--warm-ivory);
+  color: var(--navy-primary);
+  transition: all 0.2s ease;
+}
+
+.gallery-filter-btn.active, .gallery-filter-btn:hover {
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+}
+
+.achievement-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+.gallery-exhibit-card {
+  grid-column: span 4;
+  background-color: var(--warm-ivory);
+  border: 1.5px solid var(--navy-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.3s var(--transition-smooth);
+}
+
+.gallery-exhibit-card.wide-exhibit {
+  grid-column: span 8;
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+}
+
+.gallery-exhibit-card.creative-highlight {
+  background-color: var(--soft-glacier);
+}
+
+.gallery-exhibit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 8px 8px 0 var(--navy-primary);
+}
+
+.gallery-exhibit-card.wide-exhibit:hover {
+  box-shadow: 8px 8px 0 var(--glacier-secondary);
+}
+
+.exhibit-visual-header {
+  height: 150px;
+  border-bottom: 1px solid var(--line-navy-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(169, 213, 229, 0.32), transparent 72%);
+}
+
+.gallery-exhibit-card.wide-exhibit .exhibit-visual-header {
+  border-bottom-color: rgba(169, 213, 229, 0.24);
+  background: radial-gradient(circle at center, rgba(169, 213, 229, 0.16), transparent 72%);
+}
+
+.exhibit-catalog-num {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.9rem;
+  font-family: var(--font-artistic);
+  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.exhibit-category-pill {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.9rem;
+  font-family: var(--font-meta);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.6rem;
+  border: 1px solid currentColor;
+}
+
+.exhibit-body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.exhibit-title {
+  font-family: var(--font-display);
+  font-size: 1.32rem;
+  font-weight: 700;
+  line-height: 1.22;
+  margin-bottom: 0.4rem;
+}
+
+.exhibit-institution {
+  font-family: var(--font-artistic);
+  font-style: italic;
+  font-size: 1.08rem;
+  color: var(--muted-blue-grey);
+  margin-bottom: 0.85rem;
+}
+
+.gallery-exhibit-card.wide-exhibit .exhibit-institution {
+  color: var(--glacier-secondary);
+}
+
+.exhibit-desc {
+  font-size: 0.92rem;
+  line-height: 1.62;
+}
+
+/* ==========================================================================
+   SECTION 05: SKILLS ATELIER & AREAS OF INTEREST
+   ========================================================================== */
+.skills-constellation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
+.skill-quadrant-card {
+  background-color: var(--warm-ivory);
+  border: 1.5px solid var(--navy-primary);
+  padding: 2rem;
+  position: relative;
+}
+
+.skill-quadrant-card.navy-quadrant {
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+}
+
+.skill-quadrant-card.glacier-quadrant {
+  background-color: var(--soft-glacier);
+}
+
+.quadrant-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  margin-bottom: 1.35rem;
+  border-bottom: 1px solid currentColor;
+}
+
+.quadrant-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+.skill-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.skill-node-pill {
+  font-family: var(--font-meta);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--navy-primary);
+  background-color: var(--warm-cream);
+  color: var(--navy-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.skill-quadrant-card.navy-quadrant .skill-node-pill {
+  background-color: rgba(244, 235, 221, 0.1);
+  color: var(--warm-cream);
+  border-color: var(--glacier-secondary);
+}
+
+/* Areas of Interest Editorial Strip */
+.interests-tapestry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.interest-tile {
+  padding: 1.35rem;
+  background-color: var(--warm-ivory);
+  border: 1px solid var(--navy-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+  transition: all 0.25s ease;
+}
+
+.interest-tile:hover {
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+  transform: translateY(-3px);
+}
+
+.interest-index {
+  font-family: var(--font-artistic);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--muted-blue-grey);
+}
+
+.interest-tile:hover .interest-index {
+  color: var(--glacier-secondary);
+}
+
+.interest-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.28;
+}
+
+/* ==========================================================================
+   SECTION 06: BEYOND ACADEMICS — EDITORIAL COLLAGE
+   ========================================================================== */
+.beyond-collage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.collage-panel {
+  background-color: var(--warm-ivory);
+  border: 1.5px solid var(--navy-primary);
+  padding: 1.75rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.collage-panel.featured-art-panel {
+  background-color: var(--deep-navy);
+  color: var(--warm-cream);
+  border-color: var(--glacier-secondary);
+}
+
+.collage-svg-stage {
+  height: 170px;
+  border: 1px solid var(--line-navy-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(169, 213, 229, 0.14);
+  padding: 1rem;
+}
+
+.collage-panel.featured-art-panel .collage-svg-stage {
+  border-color: rgba(169, 213, 229, 0.3);
+  background-color: rgba(20, 43, 69, 0.7);
+}
+
+/* ==========================================================================
+   MODALS: PRINTABLE RESUME VIEWER & HTML/CSS SOURCE CODE STUDIO
+   ========================================================================== */
+.editorial-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background-color: rgba(16, 34, 56, 0.78);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.editorial-modal-backdrop.open {
+  display: flex;
+}
+
+.editorial-modal-window {
+  background-color: var(--warm-ivory);
+  color: var(--dark-ink);
+  border: 2px solid var(--navy-primary);
+  box-shadow: var(--shadow-elevated);
+  width: 100%;
+  max-width: 960px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-top-bar {
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.modal-body-scroll {
+  padding: 1.75rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.code-file-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.code-tab-btn {
+  font-family: var(--font-meta);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--navy-primary);
+  background-color: var(--warm-cream);
+  color: var(--navy-primary);
+}
+
+.code-tab-btn.active {
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+}
+
+.code-pre-box {
+  background-color: var(--deep-navy);
+  color: var(--warm-cream);
+  padding: 1.25rem;
+  font-family: monospace;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  overflow-x: auto;
+  max-height: 52vh;
+  border: 1px solid var(--glacier-secondary);
+  white-space: pre;
+}
+
+/* Perspective Lens Highlight States */
+body[data-lens="analytical"] .creative-lens-target {
+  opacity: 0.52;
+  transition: opacity 0.35s ease;
+}
+body[data-lens="analytical"] .analytical-lens-target {
+  outline: 2px solid var(--glacier-secondary);
+  outline-offset: 4px;
+}
+body[data-lens="creative"] .analytical-lens-target {
+  opacity: 0.52;
+  transition: opacity 0.35s ease;
+}
+body[data-lens="creative"] .creative-lens-target {
+  outline: 2px solid var(--navy-primary);
+  outline-offset: 4px;
+}
+
+@media (max-width: 960px) {
+  .about-editorial-grid,
+  .exp-card-body,
+  .skills-constellation-grid,
+  .beyond-collage-grid {
+    grid-template-columns: 1fr;
+  }
+  .edu-card {
+    grid-template-columns: 1fr;
+  }
+  .edu-meta-sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--line-navy-strong);
+  }
+  .gallery-exhibit-card,
+  .gallery-exhibit-card.wide-exhibit {
+    grid-column: span 12;
+  }
+  .interests-tapestry-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .duality-pillars-grid,
+  .interests-tapestry-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .site-header, .perspective-ribbon, .hero-cta-row, .portrait-upload-bar, .editorial-modal-backdrop {
+    display: none !important;
+  }
+  body {
+    background: #FFFFFF;
+  }
+}

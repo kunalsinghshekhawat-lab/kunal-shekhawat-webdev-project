@@ -1,0 +1,747 @@
+/* ==========================================================================
+   KUNAL SINGH SHEKHAWAT — EDITORIAL PORTFOLIO & PERSONAL IDENTITY
+   File 1 of 2: Core Design System, Layout Architecture & Typography (style.css)
+   Philosophy: "An artistic mind with a business-oriented perspective."
+   ========================================================================== */
+
+:root {
+  /* Primary Foundation Palette */
+  --navy-primary: #142B45;
+  --glacier-secondary: #A9D5E5;
+  --warm-cream: #F4EBDD;
+
+  /* Supporting Editorial Palette */
+  --deep-navy: #102238;
+  --soft-glacier: #DCEEF2;
+  --warm-ivory: #FAF7F0;
+  --muted-blue-grey: #71899A;
+  --dark-ink: #26333D;
+
+  /* Borders, Lines & Elevation */
+  --line-navy: rgba(20, 43, 69, 0.16);
+  --line-navy-strong: rgba(20, 43, 69, 0.34);
+  --line-glacier: rgba(169, 213, 229, 0.35);
+  --shadow-editorial: 0 18px 45px -15px rgba(16, 34, 56, 0.14);
+  --shadow-elevated: 0 26px 60px -18px rgba(16, 34, 56, 0.26);
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-artistic: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-meta: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Fluid Spacing & Container */
+  --container-max: 1280px;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--warm-cream);
+  color: var(--dark-ink);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--warm-cream);
+  color: var(--dark-ink);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Subtle Archival Paper Grain Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.28;
+  background-image: radial-gradient(rgba(20, 43, 69, 0.06) 1px, transparent 0),
+                    radial-gradient(rgba(169, 213, 229, 0.08) 1px, transparent 0);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+::selection {
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s var(--transition-smooth), opacity 0.25s var(--transition-smooth);
+}
+
+img, svg {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ==========================================================================
+   EDITORIAL GRID & STRUCTURAL CONTAINERS
+   ========================================================================== */
+.editorial-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.section-frame {
+  position: relative;
+  padding: clamp(4.5rem, 8vw, 7.5rem) 0;
+  border-bottom: 1px solid var(--line-navy);
+}
+
+.section-index-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: clamp(2.25rem, 4vw, 3.75rem);
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid var(--line-navy);
+}
+
+.section-numeral {
+  font-family: var(--font-artistic);
+  font-style: italic;
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: 600;
+  color: var(--navy-primary);
+  letter-spacing: 0.03em;
+}
+
+.section-kicker {
+  font-family: var(--font-meta);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted-blue-grey);
+}
+
+.section-tag-pill {
+  font-family: var(--font-meta);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.32rem 0.85rem;
+  border: 1px solid var(--line-navy-strong);
+  background-color: var(--warm-ivory);
+  color: var(--navy-primary);
+}
+
+/* ==========================================================================
+   TYPOGRAPHIC HIERARCHY
+   ========================================================================== */
+.display-oversized {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  color: var(--navy-primary);
+}
+
+.heading-editorial {
+  font-family: var(--font-display);
+  font-size: clamp(2.15rem, 4.2vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--navy-primary);
+}
+
+.heading-artistic-sub {
+  font-family: var(--font-artistic);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.35rem, 2.2vw, 1.95rem);
+  color: var(--muted-blue-grey);
+}
+
+.lead-paragraph {
+  font-family: var(--font-body);
+  font-size: clamp(1.06rem, 1.35vw, 1.22rem);
+  line-height: 1.75;
+  color: var(--dark-ink);
+}
+
+.meta-label {
+  font-family: var(--font-meta);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-blue-grey);
+}
+
+/* ==========================================================================
+   TOP EDITORIAL NAVIGATION BAR
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(244, 235, 221, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line-navy);
+  transition: all 0.3s var(--transition-smooth);
+}
+
+.site-header.scrolled {
+  background-color: rgba(20, 43, 69, 0.97);
+  color: var(--warm-cream);
+  border-bottom-color: rgba(169, 213, 229, 0.22);
+  box-shadow: 0 10px 30px rgba(16, 34, 56, 0.22);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+  gap: 1rem;
+}
+
+.brand-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.monogram-seal {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+  border: 1px solid var(--glacier-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  position: relative;
+  transition: transform 0.3s var(--transition-smooth), background-color 0.3s ease;
+}
+
+.site-header.scrolled .monogram-seal {
+  background-color: var(--glacier-secondary);
+  color: var(--deep-navy);
+}
+
+.brand-identity:hover .monogram-seal {
+  transform: rotate(-4deg) scale(1.04);
+}
+
+.brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: var(--font-meta);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy-primary);
+}
+
+.site-header.scrolled .brand-name {
+  color: var(--warm-cream);
+}
+
+.brand-sub {
+  font-family: var(--font-artistic);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--muted-blue-grey);
+}
+
+.site-header.scrolled .brand-sub {
+  color: var(--glacier-secondary);
+}
+
+.primary-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-family: var(--font-meta);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dark-ink);
+  position: relative;
+  padding: 0.35rem 0;
+}
+
+.site-header.scrolled .nav-link {
+  color: var(--warm-cream);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--glacier-secondary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s var(--transition-smooth);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.btn-nav-studio {
+  font-family: var(--font-meta);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid var(--navy-primary);
+  background-color: var(--soft-glacier);
+  color: var(--navy-primary);
+  transition: all 0.25s var(--transition-smooth);
+}
+
+.btn-nav-studio:hover {
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+}
+
+.site-header.scrolled .btn-nav-studio {
+  border-color: var(--glacier-secondary);
+  background-color: rgba(169, 213, 229, 0.14);
+  color: var(--glacier-secondary);
+}
+
+.site-header.scrolled .btn-nav-studio:hover {
+  background-color: var(--glacier-secondary);
+  color: var(--deep-navy);
+}
+
+.mobile-menu-btn {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--line-navy-strong);
+  align-items: center;
+  justify-content: center;
+  color: var(--navy-primary);
+}
+
+.site-header.scrolled .mobile-menu-btn {
+  color: var(--warm-cream);
+  border-color: var(--glacier-secondary);
+}
+
+/* ==========================================================================
+   MAGAZINE COVER HERO SECTION (EDITORIAL SPLIT LAYOUT)
+   ========================================================================== */
+.hero-cover {
+  position: relative;
+  padding: clamp(2.5rem, 5vw, 4.75rem) 0 clamp(4rem, 7vw, 6.25rem);
+  border-bottom: 2px solid var(--navy-primary);
+  overflow: hidden;
+}
+
+.hero-issue-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+  border-bottom: 1px solid var(--line-navy);
+  font-family: var(--font-meta);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted-blue-grey);
+}
+
+.hero-split-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 980px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.hero-name-stack {
+  font-family: var(--font-display);
+  font-size: clamp(3.1rem, 7.2vw, 6.15rem);
+  font-weight: 700;
+  line-height: 0.93;
+  letter-spacing: -0.03em;
+  color: var(--navy-primary);
+  margin-bottom: 1.5rem;
+}
+
+.hero-name-line {
+  display: block;
+}
+
+.hero-name-line.accent-line {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--deep-navy);
+}
+
+.hero-name-serif-italic {
+  font-family: var(--font-artistic);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 0.42em;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.85rem;
+  background-color: var(--glacier-secondary);
+  color: var(--deep-navy);
+  border: 1px solid var(--navy-primary);
+  transform: translateY(-0.15em);
+}
+
+.hero-headline-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.85rem;
+  padding: 0.85rem 1.15rem;
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+  font-family: var(--font-meta);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.65rem;
+  border-left: 4px solid var(--glacier-secondary);
+}
+
+.hero-headline-sep {
+  color: var(--glacier-secondary);
+  font-weight: 800;
+}
+
+.hero-intro-copy {
+  font-size: clamp(1.02rem, 1.25vw, 1.15rem);
+  line-height: 1.75;
+  color: var(--dark-ink);
+  max-width: 62ch;
+  margin-bottom: 2.15rem;
+}
+
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.btn-primary-navy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--navy-primary);
+  color: var(--warm-cream);
+  font-family: var(--font-meta);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 1rem 1.75rem;
+  border: 1.5px solid var(--navy-primary);
+  box-shadow: 6px 6px 0 var(--glacier-secondary);
+  transition: all 0.25s var(--transition-smooth);
+}
+
+.btn-primary-navy:hover {
+  background-color: var(--deep-navy);
+  transform: translate(-2px, -2px);
+  box-shadow: 9px 9px 0 var(--glacier-secondary);
+}
+
+.btn-secondary-editorial {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--warm-ivory);
+  color: var(--navy-primary);
+  font-family: var(--font-meta);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 1rem 1.65rem;
+  border: 1.5px solid var(--navy-primary);
+  transition: all 0.25s var(--transition-smooth);
+}
+
+.btn-secondary-editorial:hover {
+  background-color: var(--glacier-secondary);
+  color: var(--deep-navy);
+  transform: translateY(-2px);
+}
+
+.hero-quick-ledger {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line-navy);
+}
+
+.ledger-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.ledger-label {
+  font-family: var(--font-meta);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted-blue-grey);
+}
+
+.ledger-value {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--navy-primary);
+}
+
+/* ==========================================================================
+   DUAL-PERSPECTIVE LENS BAR (ANALYTICAL <-> CREATIVE)
+   ========================================================================== */
+.perspective-ribbon {
+  background-color: var(--deep-navy);
+  color: var(--warm-cream);
+  padding: 1.35rem 0;
+  border-bottom: 1px solid rgba(169, 213, 229, 0.25);
+}
+
+.perspective-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.perspective-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.perspective-Controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lens-btn {
+  font-family: var(--font-meta);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid rgba(169, 213, 229, 0.35);
+  color: var(--warm-cream);
+  background-color: transparent;
+  transition: all 0.25s ease;
+}
+
+.lens-btn:hover {
+  border-color: var(--glacier-secondary);
+  background-color: rgba(169, 213, 229, 0.12);
+}
+
+.lens-btn.active {
+  background-color: var(--glacier-secondary);
+  color: var(--deep-navy);
+  border-color: var(--glacier-secondary);
+}
+
+.lens-status-caption {
+  font-family: var(--font-artistic);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--glacier-secondary);
+}
+
+/* ==========================================================================
+   FOOTER ARCHITECTURE (DEEP NAVY + WARM CREAM + CUSTOM MONOGRAM)
+   ========================================================================== */
+.site-footer {
+  background-color: var(--deep-navy);
+  color: var(--warm-cream);
+  padding: clamp(4rem, 7vw, 6rem) 0 2.5rem;
+  border-top: 4px solid var(--glacier-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.85fr 0.85fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  padding-bottom: 3.25rem;
+  border-bottom: 1px solid rgba(169, 213, 229, 0.2);
+}
+
+.footer-name-display {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--warm-cream);
+  margin-bottom: 0.85rem;
+}
+
+.footer-philosophy {
+  font-family: var(--font-artistic);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--glacier-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.footer-col-title {
+  font-family: var(--font-meta);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--glacier-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.footer-link-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.footer-link-list a {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: rgba(244, 235, 221, 0.85);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-link-list a:hover {
+  color: var(--glacier-secondary);
+  transform: translateX(4px);
+}
+
+.footer-bottom-bar {
+  padding-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-meta);
+  font-size: 0.75rem;
+  color: rgba(244, 235, 221, 0.68);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-split-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 820px) {
+  .primary-nav {
+    display: none;
+    position: absolute;
+    top: 4.5rem;
+    left: 0;
+    right: 0;
+    background-color: var(--deep-navy);
+    color: var(--warm-cream);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem var(--gutter);
+    border-bottom: 2px solid var(--glacier-secondary);
+    box-shadow: var(--shadow-elevated);
+  }
+  .primary-nav.open {
+    display: flex;
+  }
+  .primary-nav.open .nav-link {
+    color: var(--warm-cream);
+    font-size: 0.9rem;
+    width: 100%;
+    padding: 0.55rem 0;
+  }
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+  .hero-quick-ledger {
+    grid-template-columns: 1fr;
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+  }
+}
